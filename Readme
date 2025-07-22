@@ -1,0 +1,176 @@
+# Movie Review Sentiment Analysis
+
+A web application that uses deep learning and natural language processing to classify movie reviews as **positive** or **negative** sentiment with a confidence score. This project demonstrates the full pipeline from model training to deployment with a user-friendly Flask web interface.
+
+---
+
+## Project Overview
+
+This project trains a deep learning sentiment analysis model on the IMDb movie reviews dataset. The model uses pretrained GloVe embeddings and a Bidirectional LSTM network to learn rich textual features. After training, the model and tokenizer are saved and loaded in a Flask web app that lets users input their own reviews and instantly get sentiment predictions with confidence scores.
+
+---
+
+## Features
+
+- Sentiment classification of movie reviews into **Positive** or **Negative**
+- Confidence score indicating the prediction certainty
+- Responsive and clean web UI with real-time prediction
+- Trained on IMDb dataset with 15,000 vocabulary size and 100-dimensional GloVe embeddings
+- Dockerfile included for containerized deployment
+
+---
+
+## Tech Stack
+
+- Python 3.11
+- TensorFlow / Keras
+- TensorFlow Datasets (IMDb reviews)
+- GloVe pre-trained word embeddings (100d)
+- Flask web framework
+- Joblib for tokenizer serialization
+- Docker for containerization
+- HTML, CSS, JavaScript for frontend
+
+---
+
+## Model Details
+
+- Dataset: IMDb movie reviews (train and test splits)
+- Vocabulary Size: 15,000 words
+- Embedding Dimension: 100 (GloVe embeddings)
+- Architecture:
+  - Embedding layer (with pretrained GloVe weights)
+  - Bidirectional LSTM (128 units, return sequences)
+  - Dropout (0.2)
+  - LSTM (64 units)
+  - Dropout (0.2)
+  - Dense output layer with sigmoid activation
+- Loss: Binary Cross-Entropy
+- Optimizer: Adam
+- Early stopping applied to prevent overfitting
+
+---
+
+## Setup and Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/yourusername/movie-review-sentiment-analysis.git
+   cd movie-review-sentiment-analysis
+   ```
+
+2. Create and activate a virtual environment (optional but recommended):
+
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate  # Linux/macOS
+   venv\Scripts\activate     # Windows
+   ```
+
+3. Install dependencies:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. Download the GloVe embeddings `glove.6B.100d.txt` from [here](https://nlp.stanford.edu/projects/glove/) and place it in the project root.
+
+5. Run the training script to train and save the model and tokenizer:
+
+   ```bash
+   python train_model.py
+   ```
+
+6. Run the Flask app:
+
+   ```bash
+   python app.py
+   ```
+
+7. Open your browser and go to `http://localhost:7860` to use the app.
+
+---
+
+## Usage
+
+- Enter a movie review text in the textarea.
+- Click **Submit Review**.
+- See the predicted sentiment (Positive/Negative) with a confidence score.
+- Input validation and loading spinner provide a smooth user experience.
+
+---
+
+## Docker Deployment
+
+### Using Your Own Docker Image
+
+You can build and run the app locally using the provided Dockerfile:
+
+1. Build the Docker image:
+
+   ```bash
+   docker build -t movie-sentiment-app .
+   ```
+
+2. Run the container:
+
+   ```bash
+   docker run -p 7860:7860 movie-sentiment-app
+   ```
+
+3. Open your browser at [http://localhost:7860](http://localhost:7860) to access the app.
+
+### Using the Prebuilt Docker Image from Docker Hub
+
+To skip the build step, you can directly pull and run the Docker image published on Docker Hub by Adam Derbel:
+
+1. Pull the image:
+
+   ```bash
+   docker pull adamder/sentiment-analyzer:latest
+   ```
+
+2. Run the container (naming it `sa` in this example):
+
+   ```bash
+   docker run --name sa -p 7860:7860 adamder/sentiment-analyzer:latest
+   ```
+
+3. Access the app in your browser at [http://localhost:7860](http://localhost:7860).
+
+---
+
+## File Structure
+
+```
+.
+├── app.py                  # Flask application
+├── train_model.py          # Model training script
+├── model.keras             # Saved trained Keras model
+├── tokenizer.pkl           # Saved tokenizer using joblib
+├── glove.6B.100d.txt       # Pretrained GloVe embeddings file
+├── requirements.txt        # Python dependencies
+├── Dockerfile              # Docker container build instructions
+├── templates/
+│   └── index.html          # Frontend HTML template
+└── README.md               # Project documentation
+```
+
+---
+
+## Future Improvements
+
+- Add more detailed sentiment categories (neutral, mixed)
+- Support multiple languages
+- Improve frontend with React or Vue.js for better UX
+- Deploy the app on cloud platforms (Heroku, AWS, GCP)
+- Add user authentication for personalized feedback history
+
+---
+
+## Acknowledgments
+
+- [IMDb Dataset](https://www.tensorflow.org/datasets/catalog/imdb_reviews)
+- [GloVe Word Embeddings](https://nlp.stanford.edu/projects/glove/)
+- Flask documentation and community
