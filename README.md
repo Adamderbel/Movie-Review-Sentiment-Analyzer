@@ -33,23 +33,6 @@ A web application that uses deep learning and natural language processing to cla
 
 ---
 
-## 📈 How It Works
-1. Train a deep learning model on the IMDb movie reviews dataset using pretrained GloVe embeddings and a Bidirectional LSTM network.
-2. Save the trained model and tokenizer for deployment.
-3. Use Flask to serve a web interface where users input movie reviews.
-4. Display sentiment predictions (Positive/Negative) with confidence scores in real-time.
-
-**Example**:
-Enter a review like:
-
-> "This movie was absolutely thrilling with great performances!"
-
-The app will predict:
-
-> **Positive** (Confidence: 0.92)
-
----
-
 ## 📂 Project Structure
 ```
 📁 movie-review-sentiment-analysis/
