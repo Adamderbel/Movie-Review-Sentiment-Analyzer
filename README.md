@@ -74,7 +74,7 @@ Download `glove.6B.100d.txt` from [GloVe](https://nlp.stanford.edu/projects/glov
 
 ### 5. Train the Model
 ```bash
-python train_model.py
+python train.py
 ```
 
 ### 6. Run the App
@@ -102,7 +102,7 @@ Access the app at [http://localhost:7860](http://localhost:7860).
    ```
 2. Run the container:
    ```bash
-   docker run -p 7860:7860 movie-sentiment-app
+   docker run -d -p 7860:7860 movie-sentiment-app
    ```
 3. Access the app at [http://localhost:7860](http://localhost:7860).
 
@@ -113,7 +113,7 @@ Access the app at [http://localhost:7860](http://localhost:7860).
    ```
 2. Run the container:
    ```bash
-   docker run --name sa -p 7860:7860 adamder/sentiment-analyzer:latest
+   docker run --name sa -d -p 7860:7860 adamder/sentiment-analyzer:latest
    ```
 3. Access the app at [http://localhost:7860](http://localhost:7860).
 
