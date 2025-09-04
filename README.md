@@ -2,7 +2,6 @@
 
 A web application that uses deep learning and natural language processing to classify movie reviews as **positive** or **negative** sentiment with a confidence score. This project demonstrates the full pipeline from model training to deployment with a user-friendly Flask web interface.
 
-> 📌 **Key Use Case**: Analyze movie reviews to determine sentiment with a robust deep learning model and deploy it as an interactive web app.
 
 ---
 
