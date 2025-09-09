@@ -1,7 +1,7 @@
 # 🎬 Movie Review Sentiment Analysis
 
 A web application that uses deep learning and natural language processing to classify movie reviews as **positive** or **negative** sentiment with a confidence score. This project demonstrates the full pipeline from model training to deployment with a user-friendly Flask web interface.
-
+> 🔗 *Demo:* [Movie Review Sentiment Analyzer](https://adamderbel.github.io/Adam-Portfolio/movie-sentiment.html)
 
 ---
 
@@ -16,19 +16,6 @@ A web application that uses deep learning and natural language processing to cla
 
 ## 📸 Demo
 ![Flask UI](screenshots/demo.png)
-
----
-
-## ⚙️ Tech Stack
-| Component | Tech Used |
-|-----------|-----------|
-| Backend | Python 3.11, Flask |
-| Machine Learning | TensorFlow, Keras |
-| Dataset | IMDb reviews (TensorFlow Datasets) |
-| Embeddings | GloVe (100d) |
-| Serialization | Joblib (tokenizer) |
-| Containerization | Docker |
-| Frontend | HTML, CSS, JavaScript |
 
 ---
 
@@ -143,16 +130,4 @@ Access the app at [http://localhost:7860](http://localhost:7860).
 
 ---
 
-## 🚀 Future Improvements
-- 🧠 Add neutral or mixed sentiment categories
-- 🌐 Support multiple languages
-- 🎨 Upgrade frontend with React or Vue.js
-- ☁️ Deploy on cloud platforms (Heroku, AWS, GCP)
-- 🔐 Add user authentication for personalized feedback history
 
----
-
-## 🙏 Acknowledgments
-- [IMDb Dataset](https://www.tensorflow.org/datasets/catalog/imdb_reviews)
-- [GloVe Word Embeddings](https://nlp.stanford.edu/projects/glove/)
-- Flask documentation and community
